@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RssReader\IndexConstroller;
+use App\Http\Controllers\RssReader\RssReaderConstroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/', function () {
+        return view('welcome');
+    }
+);
+
+Route::prefix('rss')->name('rss.')->group(
+    function () {
+        Route::get('/', [IndexConstroller::class, 'index'])->name('index');
+    }
+);
