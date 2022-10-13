@@ -20,15 +20,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($page->list as $item)
+                            @foreach($page->showList as $item)
                             <tr>
-                                <td class="px-4 py-3">{{ $loop->index + 1 }}</td>
+                                <td class="px-4 py-3">{{ $page->rowNum($loop->index) }}</td>
                                 <td class="px-4 py-3">{{ $item->title }}</td>
                                 <td class="px-4 py-3"><a target="_blank" href="{{ $item->link }}">リンク</a></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $page->paginator->links('pagination::tailwind') }}
                 </div>
             </div>
         </section>
