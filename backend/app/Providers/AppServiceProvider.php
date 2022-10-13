@@ -2,18 +2,26 @@
 
 namespace App\Providers;
 
+use App\Infra\Repositories\Queries\SearchQuery;
 use Illuminate\Support\ServiceProvider;
+use Rss\Application\Queries\SearchQueryInterface;
 
+/**
+ * AppServiceProvider
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * 登録するコンテナ
      *
-     * @return void
+     * @var array
      */
+    public $bindings = [
+        SearchQueryInterface::class => SearchQuery::class
+    ];
+
     public function register()
     {
-        //
     }
 
     /**
@@ -23,6 +31,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }
