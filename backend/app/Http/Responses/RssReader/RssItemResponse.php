@@ -13,7 +13,7 @@ class RssItemResponse
      * @param Collection $list 検索結果
      */
     public function __construct(
-        private Collection $list
+        public Collection $list
     ) {
     }
 
@@ -28,8 +28,8 @@ class RssItemResponse
             $this->list->map(
                 function ($item) {
                     return [
-                        'title'       => $item->title,
-                        'description' => $item->description,
+                        'title' => $item->title,
+                        'link'  => $item->link,
                     ];
                 }
             ),

@@ -21,13 +21,15 @@ class IndexConstroller extends Controller
 
     /**
      * index
-     *
-     * @return string
      */
     public function index()
     {
         $list = $this->useCase->invoke();
 
-        return (new RssItemResponse($list))->toJson();
+        return view(
+            'rss-reader.index', [
+                'page' => new RssItemResponse($list),
+            ]
+        );
     }
 }
