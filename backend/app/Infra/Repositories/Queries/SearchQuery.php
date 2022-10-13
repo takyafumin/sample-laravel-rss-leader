@@ -28,6 +28,7 @@ class SearchQuery implements SearchQueryInterface
         foreach($feed->get_items() as $item) {
             $list[] = new RssItem(
                 $item->get_title(),
+                $item->get_link(),
                 $item->get_description(),
             );
         }

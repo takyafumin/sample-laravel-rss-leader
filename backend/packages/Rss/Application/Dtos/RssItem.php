@@ -12,10 +12,12 @@ class RssItem
 {
     /**
      * @param string      $title       タイトル
+     * @param string|null $link        リンク
      * @param string|null $description 詳細
      */
     public function __construct(
         private string $title,
+        private ?string $link,
         private ?string $description,
     ) {
     }
